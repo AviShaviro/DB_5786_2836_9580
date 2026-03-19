@@ -1,9 +1,9 @@
 services:
-  #---------------
-  # PostgresSQL Database
-  #---------------
+  # -------------------------
+  # PostgreSQL Database
+  # -------------------------
   db:
-    image: postgres:17.1
+    image: postgres:latest
     container_name: PostgreSQL_DB
     restart: always
     environment:
@@ -14,19 +14,20 @@ services:
       - "5432:5432"
     volumes:
       - ./init-db:/docker-entrypoint-initdb.d
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql
     networks:
-      - kids_network
-  #----------------
+      - chess_network
+
+  # -------------------------
   # pgAdmin
-  #---------------- 
+  # -------------------------
   pgadmin:
     image: dpage/pgadmin4
-    container_name: pgAdminApp
+    container_name: pgadminApp
     restart: always
     environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL_SECRET}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD_SECRET}
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
     ports:
       - "8080:80"
     volumes:
@@ -34,16 +35,15 @@ services:
     depends_on:
       - db
     networks:
-      - kids_network
-#----------------
-# Network
-#----------------
-networks:
-  kids_network:
-    #    driver: bridge
-    #----------------
-    # Volumes
-    #---------------- 
+      - chess_network
+
+# -------------------------
+# Volumes
+# -------------------------
 volumes:
   postgres_data:
   pgadmin_data:
+
+
+networks:
+  chess_network:
