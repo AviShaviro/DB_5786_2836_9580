@@ -1,0 +1,699 @@
+{
+  "diagramType": 2,
+  "data": {
+    "nodes": [
+      {
+        "id": "41b680f1-da34-441a-b3bc-a3ef287ebc15",
+        "type": "Table",
+        "position": {
+          "x": 262.00687752736604,
+          "y": 179.6284945528271
+        },
+        "data": {
+          "label": "USER",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "4263cbb6-d0fb-409c-86b8-71d4ec4e5254",
+              "name": "user_id",
+              "type": "INT",
+              "isPrimaryKey": true,
+              "isOptional": false
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 51
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "8b0c4c99-93b8-48e7-aca8-a3b817891a69",
+        "type": "Table",
+        "position": {
+          "x": 647.6694579175437,
+          "y": 217.3898936913734
+        },
+        "data": {
+          "label": "COURSES",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "3af85d2f-a52e-4c37-bc6a-8ee49347f56d",
+              "name": "course_id",
+              "type": "INT",
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "ba327497-05ef-4df8-8632-c7fe83e41bd3",
+              "name": "title",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "52001fd3-5f28-48fd-b5f1-76c5c2a1df92",
+              "name": "description",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "104ef612-ff87-4726-8d22-5739d8fcd150",
+              "name": "publish_date",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "81ff4974-d818-4e60-b63d-d69cde41ebcc",
+              "name": "fk_USER",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "77a5e527-0ec5-4484-a4d7-ccfde227e337",
+                "sourceTableId": "41b680f1-da34-441a-b3bc-a3ef287ebc15",
+                "columns": [
+                  {
+                    "id": "fk_4263cbb6-d0fb-409c-86b8-71d4ec4e5254",
+                    "name": "user_id",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isOptional": false
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 149
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "f2064bac-800d-46f7-a14e-c5c3234b74a7",
+        "type": "Table",
+        "position": {
+          "x": 997.891613073215,
+          "y": 219.01569759315004
+        },
+        "data": {
+          "label": "CHAPTERS",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "5add971e-f78d-47b3-904b-e1c2dec786b4",
+              "name": "chapter_id",
+              "type": "INT",
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "9c73777b-244e-4f2e-8a1a-5ab81edc2de2",
+              "name": "title",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "98a59853-03a3-415d-a003-e6fb7b6fc9d4",
+              "name": "content_text",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "a411fa49-8bd8-488f-a61b-51bc2b0ba63f",
+              "name": "chapter_order",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "043bacfa-0643-49be-bfa7-08f32e6525f4",
+              "name": "fk_COURSES",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "91902a83-0166-49b9-ba35-c8f136d6bce7",
+                "sourceTableId": "8b0c4c99-93b8-48e7-aca8-a3b817891a69",
+                "columns": [
+                  {
+                    "id": "fk_3af85d2f-a52e-4c37-bc6a-8ee49347f56d",
+                    "name": "course_id",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isOptional": false
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 149
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "ff67902f-44ea-4a9a-9794-9b6c910c959a",
+        "type": "Table",
+        "position": {
+          "x": 555.473716853137,
+          "y": 435.1157433521238
+        },
+        "data": {
+          "label": "PUZZLES",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "2e259c13-3364-481c-bc67-e5cd95c3cb14",
+              "name": "fen_string",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "374acbfc-9b65-4e29-87f2-04f0bd290169",
+              "name": "puzzle_id",
+              "type": "INT",
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "3170a4ef-8e8d-42f8-8371-3e572bce9692",
+              "name": "solution_moves",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "095d3b03-32ce-46e9-a2f3-e9bb5cb44f51",
+              "name": "difficulty_elo",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "d74d794c-f6bf-4416-960f-96123fbf62d6",
+              "name": "fk_TAGS",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "9a837f97-91a7-4fbe-a0b0-03a5afb645cf",
+                "sourceTableId": "95d9a253-b303-47c4-8f14-65964cb697e1",
+                "columns": [
+                  {
+                    "id": "fk_fff16ebc-1e0b-4ddc-a7df-5dc82d5403d8",
+                    "name": "tag_id",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isOptional": true
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 149
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "c784f703-497f-4fca-b066-a56d83f43467",
+        "type": "Table",
+        "position": {
+          "x": 934.3653145983692,
+          "y": 426.5453491997922
+        },
+        "data": {
+          "label": "DAILY_PUZZLES",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "602d2ac9-4ff5-4866-b129-b82531d9dda6",
+              "name": "daily_puzzle_id",
+              "type": "INT",
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "b1b63b62-47b5-45c8-9620-44fb3c5d971e",
+              "name": "title",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "0ed941df-edb5-43d8-b02b-146535bb891a",
+              "name": "puzzle_date",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "c2ecb7a6-81dc-460c-b85e-e012b8b93f6e",
+              "name": "bonus_xp",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "40a2bd20-f460-481c-8be1-9cac220eb943",
+              "name": "fk_PUZZLES",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "16cc8ba4-06f7-468e-bf8d-de4c2868a9b0",
+                "sourceTableId": "ff67902f-44ea-4a9a-9794-9b6c910c959a",
+                "columns": [
+                  {
+                    "id": "fk_374acbfc-9b65-4e29-87f2-04f0bd290169",
+                    "name": "puzzle_id",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isOptional": false
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 149
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "95d9a253-b303-47c4-8f14-65964cb697e1",
+        "type": "Table",
+        "position": {
+          "x": 255.46443328593898,
+          "y": 570.2289519154964
+        },
+        "data": {
+          "label": "TAGS",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "fff16ebc-1e0b-4ddc-a7df-5dc82d5403d8",
+              "name": "tag_id",
+              "type": "INT",
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "dc4cceb6-8817-463f-89d0-b0f9858e342e",
+              "name": "tag_name",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "d66e5dda-3449-43f6-a7ba-c868f8f29a4c",
+              "name": "description",
+              "type": "INT",
+              "isPrimaryKey": false
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 99
+        },
+        "selected": true,
+        "dragging": false
+      },
+      {
+        "id": "c3419c02-7409-481a-95f7-da71a7ae978f",
+        "type": "Table",
+        "position": {
+          "x": 647.1380627312436,
+          "y": 8.492188928359933
+        },
+        "data": {
+          "label": "COURSE_PROGRESS",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "75524333-7c32-404c-9f00-963d386d2d6e",
+              "name": "is_completed",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "c3a1c1e1-bce9-4cc4-bb6d-6ca66dc443a4",
+              "name": "start_date",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "96eaec1e-fb48-46d5-bcb7-9b43b1fccf8c",
+              "name": "completion_date",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "b694591a-a434-42e6-80fb-fc127bfd47cb",
+              "name": "fk_USER",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "02a2c2fe-38df-4978-a6dd-2f81cf2a8392",
+                "sourceTableId": "41b680f1-da34-441a-b3bc-a3ef287ebc15",
+                "columns": [
+                  {
+                    "id": "fk_4263cbb6-d0fb-409c-86b8-71d4ec4e5254",
+                    "name": "user_id",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "e9add21e-9c6a-4e95-b7d6-01ac3f82fa4b",
+              "name": "fk_COURSES",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "435d8082-36bd-40f0-bb6f-f95a15e92076",
+                "sourceTableId": "8b0c4c99-93b8-48e7-aca8-a3b817891a69",
+                "columns": [
+                  {
+                    "id": "fk_3af85d2f-a52e-4c37-bc6a-8ee49347f56d",
+                    "name": "course_id",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isPrimaryKey": true,
+              "isOptional": false
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 149
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "c6c0b0e8-f151-4639-82d8-94ea9e8e18d6",
+        "type": "Table",
+        "position": {
+          "x": 256.72669303525925,
+          "y": 298.2405596922816
+        },
+        "data": {
+          "label": "PUZZLE_ATTEMPT",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "559587c0-8d4a-4124-99a7-c2c489196e50",
+              "name": "attempt_id",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "2fc4d816-e0e4-4462-813d-a7331d14d504",
+              "name": "is_successful",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "fe672762-f035-48f9-a56e-530467aa7a17",
+              "name": "time_taken_sec",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "3b4e6416-49f0-4880-acf4-17455a9f3fc1",
+              "name": "attempt_date",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "0a837c29-7c80-40be-8867-f19dc937dc6b",
+              "name": "fk_PUZZLES",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "a5d9dd46-44c0-4c72-aa62-ac157240aa78",
+                "sourceTableId": "ff67902f-44ea-4a9a-9794-9b6c910c959a",
+                "columns": [
+                  {
+                    "id": "fk_374acbfc-9b65-4e29-87f2-04f0bd290169",
+                    "name": "puzzle_id",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "2d0af9d8-e2fe-4f57-93c3-991ff98047cd",
+              "name": "fk_USER",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "70164125-304f-4c0e-b8bc-0b685bfae47b",
+                "sourceTableId": "41b680f1-da34-441a-b3bc-a3ef287ebc15",
+                "columns": [
+                  {
+                    "id": "fk_4263cbb6-d0fb-409c-86b8-71d4ec4e5254",
+                    "name": "user_id",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isPrimaryKey": true,
+              "isOptional": false
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 174
+        },
+        "selected": false,
+        "dragging": false
+      }
+    ],
+    "edges": [
+      {
+        "id": "41b680f1-da34-441a-b3bc-a3ef287ebc15->8b0c4c99-93b8-48e7-aca8-a3b817891a69_77a5e527-0ec5-4484-a4d7-ccfde227e337",
+        "type": "Relational",
+        "source": "41b680f1-da34-441a-b3bc-a3ef287ebc15",
+        "targetHandle": "foreign-key-handle-77a5e527-0ec5-4484-a4d7-ccfde227e337",
+        "target": "8b0c4c99-93b8-48e7-aca8-a3b817891a69",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "77a5e527-0ec5-4484-a4d7-ccfde227e337",
+            "sourceTableId": "41b680f1-da34-441a-b3bc-a3ef287ebc15",
+            "columns": [
+              {
+                "id": "fk_4263cbb6-d0fb-409c-86b8-71d4ec4e5254",
+                "name": "user_id",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "8b0c4c99-93b8-48e7-aca8-a3b817891a69->f2064bac-800d-46f7-a14e-c5c3234b74a7_91902a83-0166-49b9-ba35-c8f136d6bce7",
+        "type": "Relational",
+        "source": "8b0c4c99-93b8-48e7-aca8-a3b817891a69",
+        "targetHandle": "foreign-key-handle-91902a83-0166-49b9-ba35-c8f136d6bce7",
+        "target": "f2064bac-800d-46f7-a14e-c5c3234b74a7",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "91902a83-0166-49b9-ba35-c8f136d6bce7",
+            "sourceTableId": "8b0c4c99-93b8-48e7-aca8-a3b817891a69",
+            "columns": [
+              {
+                "id": "fk_3af85d2f-a52e-4c37-bc6a-8ee49347f56d",
+                "name": "course_id",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "95d9a253-b303-47c4-8f14-65964cb697e1->ff67902f-44ea-4a9a-9794-9b6c910c959a_9a837f97-91a7-4fbe-a0b0-03a5afb645cf",
+        "type": "Relational",
+        "source": "95d9a253-b303-47c4-8f14-65964cb697e1",
+        "targetHandle": "foreign-key-handle-9a837f97-91a7-4fbe-a0b0-03a5afb645cf",
+        "target": "ff67902f-44ea-4a9a-9794-9b6c910c959a",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "9a837f97-91a7-4fbe-a0b0-03a5afb645cf",
+            "sourceTableId": "95d9a253-b303-47c4-8f14-65964cb697e1",
+            "columns": [
+              {
+                "id": "fk_fff16ebc-1e0b-4ddc-a7df-5dc82d5403d8",
+                "name": "tag_id",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "ff67902f-44ea-4a9a-9794-9b6c910c959a->c784f703-497f-4fca-b066-a56d83f43467_16cc8ba4-06f7-468e-bf8d-de4c2868a9b0",
+        "type": "Relational",
+        "source": "ff67902f-44ea-4a9a-9794-9b6c910c959a",
+        "targetHandle": "foreign-key-handle-16cc8ba4-06f7-468e-bf8d-de4c2868a9b0",
+        "target": "c784f703-497f-4fca-b066-a56d83f43467",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "16cc8ba4-06f7-468e-bf8d-de4c2868a9b0",
+            "sourceTableId": "ff67902f-44ea-4a9a-9794-9b6c910c959a",
+            "columns": [
+              {
+                "id": "fk_374acbfc-9b65-4e29-87f2-04f0bd290169",
+                "name": "puzzle_id",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "41b680f1-da34-441a-b3bc-a3ef287ebc15->c3419c02-7409-481a-95f7-da71a7ae978f_02a2c2fe-38df-4978-a6dd-2f81cf2a8392",
+        "type": "Relational",
+        "source": "41b680f1-da34-441a-b3bc-a3ef287ebc15",
+        "targetHandle": "foreign-key-handle-02a2c2fe-38df-4978-a6dd-2f81cf2a8392",
+        "target": "c3419c02-7409-481a-95f7-da71a7ae978f",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "02a2c2fe-38df-4978-a6dd-2f81cf2a8392",
+            "sourceTableId": "41b680f1-da34-441a-b3bc-a3ef287ebc15",
+            "columns": [
+              {
+                "id": "fk_4263cbb6-d0fb-409c-86b8-71d4ec4e5254",
+                "name": "user_id",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "8b0c4c99-93b8-48e7-aca8-a3b817891a69->c3419c02-7409-481a-95f7-da71a7ae978f_435d8082-36bd-40f0-bb6f-f95a15e92076",
+        "type": "Relational",
+        "source": "8b0c4c99-93b8-48e7-aca8-a3b817891a69",
+        "targetHandle": "foreign-key-handle-435d8082-36bd-40f0-bb6f-f95a15e92076",
+        "target": "c3419c02-7409-481a-95f7-da71a7ae978f",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "435d8082-36bd-40f0-bb6f-f95a15e92076",
+            "sourceTableId": "8b0c4c99-93b8-48e7-aca8-a3b817891a69",
+            "columns": [
+              {
+                "id": "fk_3af85d2f-a52e-4c37-bc6a-8ee49347f56d",
+                "name": "course_id",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "ff67902f-44ea-4a9a-9794-9b6c910c959a->c6c0b0e8-f151-4639-82d8-94ea9e8e18d6_a5d9dd46-44c0-4c72-aa62-ac157240aa78",
+        "type": "Relational",
+        "source": "ff67902f-44ea-4a9a-9794-9b6c910c959a",
+        "targetHandle": "foreign-key-handle-a5d9dd46-44c0-4c72-aa62-ac157240aa78",
+        "target": "c6c0b0e8-f151-4639-82d8-94ea9e8e18d6",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "a5d9dd46-44c0-4c72-aa62-ac157240aa78",
+            "sourceTableId": "ff67902f-44ea-4a9a-9794-9b6c910c959a",
+            "columns": [
+              {
+                "id": "fk_374acbfc-9b65-4e29-87f2-04f0bd290169",
+                "name": "puzzle_id",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "41b680f1-da34-441a-b3bc-a3ef287ebc15->c6c0b0e8-f151-4639-82d8-94ea9e8e18d6_70164125-304f-4c0e-b8bc-0b685bfae47b",
+        "type": "Relational",
+        "source": "41b680f1-da34-441a-b3bc-a3ef287ebc15",
+        "targetHandle": "foreign-key-handle-70164125-304f-4c0e-b8bc-0b685bfae47b",
+        "target": "c6c0b0e8-f151-4639-82d8-94ea9e8e18d6",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "70164125-304f-4c0e-b8bc-0b685bfae47b",
+            "sourceTableId": "41b680f1-da34-441a-b3bc-a3ef287ebc15",
+            "columns": [
+              {
+                "id": "fk_4263cbb6-d0fb-409c-86b8-71d4ec4e5254",
+                "name": "user_id",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "viewport": {
+      "x": 95.96391512311664,
+      "y": 74.8279745946254,
+      "zoom": 0.9308377417045343
+    }
+  },
+  "name": "ChessStuding-Relational Schema",
+  "folder": {
+    "name": "Diagrams",
+    "folderType": 1,
+    "depth": 0,
+    "id": 265697
+  },
+  "id": 405062,
+  "updatedAtTimestamp": 1775932601
+}
