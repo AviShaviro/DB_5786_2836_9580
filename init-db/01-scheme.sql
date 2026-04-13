@@ -53,7 +53,7 @@ CREATE TABLE DAILY_PUZZLES
 
 CREATE TABLE COURSE_PROGRESS
 (
-    course_progress_id SERIAL PRIMARY KEY,
+  course_progress_id SERIAL PRIMARY KEY,
   user_id INT NOT NULL,
   course_id INT NOT NULL,
   is_completed BOOLEAN DEFAULT FALSE,

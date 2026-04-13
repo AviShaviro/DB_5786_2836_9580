@@ -1,26 +1,19 @@
--- קובץ selectAll.sql
--- שליפת נתונים מכל הטבלאות במערכת
-
--- בחירת כל המשתמשים
+-- שליפת כל הנתונים מכל הטבלאות
 SELECT * FROM USERS;
-
--- בחירת כל הקורסים
 SELECT * FROM COURSES;
-
--- בחירת כל הפרקים (Chapters)
 SELECT * FROM CHAPTERS;
-
--- בחירת כל התגיות
 SELECT * FROM TAGS;
-
--- בחירת כל החידות (Puzzles)
 SELECT * FROM PUZZLES;
-
--- בחירת כל החידות היומיות
 SELECT * FROM DAILY_PUZZLES;
-
--- בחירת נתוני התקדמות בקורסים
 SELECT * FROM COURSE_PROGRESS;
-
--- בחירת כל ניסיונות הפתרון של החידות
 SELECT * FROM PUZZLE_ATTEMPT;
+
+-- ספירת כמות הרשומות בכל טבלה
+SELECT 'USERS' AS table_name, COUNT(*) FROM USERS;
+SELECT 'COURSES' AS table_name, COUNT(*) FROM COURSES;
+SELECT 'CHAPTERS' AS table_name, COUNT(*) FROM CHAPTERS;
+SELECT 'TAGS' AS table_name, COUNT(*) FROM TAGS;
+SELECT 'PUZZLES' AS table_name, COUNT(*) FROM PUZZLES;
+SELECT 'DAILY_PUZZLES' AS table_name, COUNT(*) FROM DAILY_PUZZLES;
+SELECT 'COURSE_PROGRESS' AS table_name, COUNT(*) FROM COURSE_PROGRESS;
+SELECT 'PUZZLE_ATTEMPT' AS table_name, COUNT(*) FROM PUZZLE_ATTEMPT;
