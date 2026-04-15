@@ -13,7 +13,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./init-db:/docker-entrypoint-initdb.d
+      - ./scripts:/docker-entrypoint-initdb.d
       - postgres_data:/var/lib/postgresql
     networks:
       - chess_network
