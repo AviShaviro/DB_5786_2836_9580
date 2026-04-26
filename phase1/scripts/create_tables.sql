@@ -28,7 +28,7 @@ CREATE TABLE TAGS
 (
   tag_id SERIAL PRIMARY KEY,
   tag_name VARCHAR(100) NOT NULL UNIQUE,
-  description TEXT,
+  description TEXT
 );
 
 CREATE TABLE PUZZLES
