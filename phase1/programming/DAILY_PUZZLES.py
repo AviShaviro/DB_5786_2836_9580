@@ -6,7 +6,7 @@ import shared_logic
 # שילוב נתיב התיקייה עם שם הקובץ שניצור
 filename = shared_logic.get_csv_path('daily_puzzles.csv')
 # הגדרת מספר הרשומות הנדרש
-num_records = 20000
+num_records = 1000
 
 # תאריך התחלה ליצירת תאריכים ייחודיים
 start_date = date(2020, 1, 1) 
