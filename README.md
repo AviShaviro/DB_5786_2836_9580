@@ -34,10 +34,10 @@ This database serves as a structured and reliable solution for the platform to:
 This structured database helps streamline the e-learning experience, improving content organization and user tracking.
 
 ###  ERD (Entity-Relationship Diagram)   
-![ERD Diagram](phase1\diagrams\ERD.png)  
+![ERD Diagram](phase1/diagrams/ERD.png)  
 
 ###  DSD (Data Structure Diagram)   
-![DSD Diagram](phase1\diagrams\DSD.png)  
+![DSD Diagram](phase1/diagrams/DSD.png)  
 
 ###  SQL Scripts  
 Provide the following SQL scripts:  
