@@ -43,13 +43,20 @@ This structured database helps streamline the e-learning experience, improving c
 Provide the following SQL scripts:  
 - **Create Tables Script** - The SQL script for creating the database tables is available in the repository:  
 
-📜 **[View `create_tables.sql`](Phase1/scripts/ChessPlatformCreateTable.sql)** - **Insert Data Script** - The SQL script for insert data to the database tables is available in the repository:  
+📜 **[View `create_tables.sql`](phase1/scripts/create_tables.sql)**
 
-📜 **[View `insert_tables.sql`](Phase1/scripts/ChessPlatformInserts.sql)** - **Drop Tables Script** - The SQL script for droping all tables is available in the repository:  
+- **Insert Data Script** - The SQL script for insert data to the database tables is available in the repository:  
 
-📜 **[View `drop_tables.sql`](Phase1/scripts/ChessPlatformDropTable.sql)** - **Select All Data Script** - The SQL script for selectAll tables is available in the repository:  
+📜 **[View `insert_tables.sql`](Phase1/scripts/ChessPlatformInserts.sql)** 
+
+- **Drop Tables Script** - The SQL script for droping all tables is available in the repository:  
+
+📜 **[View `drop_tables.sql`](Phase1/scripts/ChessPlatformDropTable.sql)** 
+
+- **Select All Data Script** - The SQL script for selectAll tables is available in the repository:  
 
 📜 **[View `selectAll_tables.sql`](Phase1/scripts/ChessPlatformSelectAll.sql)** ###  Data  
+
 ####  First tool: using [mockaro](https://www.mockaroo.com/) to create csv file
 #####  Entering data to USERS table
 -  user_id scope 1-5000
