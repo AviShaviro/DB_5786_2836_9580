@@ -1,13 +1,10 @@
 import csv
 import random
-import os
 from datetime import date, timedelta
-
-# מציאת הנתיב המדויק של התיקייה שבה נמצא הסקריפט הזה
-current_directory = os.path.dirname(os.path.abspath(__file__))
+import shared_logic
 
 # שילוב נתיב התיקייה עם שם הקובץ שניצור
-filename = os.path.join(current_directory, 'daily_puzzles.csv')
+filename = shared_logic.get_csv_path('daily_puzzles.csv')
 # הגדרת מספר הרשומות הנדרש
 num_records = 20000
 
@@ -23,8 +20,8 @@ with open(filename, mode='w', newline='', encoding='utf-8') as file:
     for i in range(1, num_records + 1):
         daily_puzzle_id = i
         
-        # בחירת מזהה פאזל אקראי (בהנחה שיש פאזלים מ-1 עד 800 בטבלת PUZZLES)
-        puzzle_id = random.randint(1, 800) 
+        # בחירת מזהה פאזל אקראי 
+        puzzle_id = random.randint(1, shared_logic.MAX_PUZZLES) 
         
         # הבטחת תאריך ייחודי לכל פאזל יומי על ידי הוספת יום לכל איטרציה
         puzzle_date = start_date + timedelta(days=i-1) 

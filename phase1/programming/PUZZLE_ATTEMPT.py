@@ -1,13 +1,9 @@
 import csv
 import random
-import os
 from datetime import datetime, timedelta
+import shared_logic
 
-# מציאת הנתיב המדויק של התיקייה שבה נמצא הסקריפט הזה
-current_directory = os.path.dirname(os.path.abspath(__file__))
-
-# שילוב נתיב התיקייה עם שם הקובץ שניצור
-filename = os.path.join(current_directory, 'puzzle_attempt.csv')
+filename = shared_logic.get_csv_path('puzzle_attempt.csv')
 
 # הגדרות הרשומות
 num_records = 20000
@@ -25,11 +21,10 @@ with open(filename, mode='w', newline='', encoding='utf-8') as file:
     for i in range(1, num_records + 1):
         attempt_id = i
         
-        # בחירת מזהה משתמש אקראי (יש לוודא שמזהים אלו קיימים בטבלת USERS)
-        user_id = random.randint(1, 601)
+        user_id = random.randint(1, shared_logic.MAX_USERS)
         
-        # בחירת מזהה פאזל אקראי (תואם לדוגמה הקודמת של עד 1000 פאזלים)
-        puzzle_id = random.randint(1, 800)
+        # בחירת מזהה פאזל אקראי
+        puzzle_id = random.randint(1, shared_logic.MAX_PUZZLES)
         
         # הגרלה האם הניסיון הצליח (True) או נכשל (False) - 65% סיכוי להצלחה
         is_successful = random.choices([True, False], weights=[65, 35])[0] 
