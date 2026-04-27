@@ -1,6 +1,12 @@
+
+'''#########################    NEED to DOWNLOAD   ##########################
+for this script you NEED to DOWNLOAD the lichess puzzles data
+from https://database.lichess.org/#puzzles
+and place the 'lichess_db_puzzle.csv' file in the same folder as this script.
+###########################################################################'''
+
 import csv
 from shared_logic import get_csv_path
-
 
 # הגדרות
 input_file = get_csv_path('lichess_db_puzzle.csv') # שם הקובץ של lichess
