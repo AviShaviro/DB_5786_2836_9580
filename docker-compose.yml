@@ -14,6 +14,12 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql
+      - ./phase1/mockarooFiles/CHAPTERS.csv:/var/lib/postgresql/csv_data
+      - ./phase1/programming/puzzles.csv:/var/lib/postgresql/csv_data
+      - ./phase1/programming/daily_puzzles.csv:/var/lib/postgresql/csv_data
+      - ./phase1/programming/tags.csv:/var/lib/postgresql/csv_data
+      - ./phase1/programming/puzzle_attempt.csv:/var/lib/postgresql/csv_data
+      - ./phase1/scripts:/var/lib/postgresql/scripts
     networks:
       - chess_network
 
@@ -42,7 +48,6 @@ services:
 volumes:
   postgres_data:
   pgadmin_data:
-
 
 networks:
   chess_network:
