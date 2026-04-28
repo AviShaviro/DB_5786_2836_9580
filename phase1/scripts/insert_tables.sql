@@ -1,24 +1,3 @@
--- ייבוא נתונים מקבצי CSV
-COPY CHAPTERS(chapter_id,title,content_text,chapter_order,course_id)
-FROM '/var/lib/postgresql/csv_data/CHAPTERS.csv'
-DELIMITER ',' CSV HEADER;
-
-COPY TAGS(tag_name, description)
-FROM '/var/lib/postgresql/csv_data/tags.csv'
-DELIMITER ',' CSV HEADER;
-
-COPY PUZZLES(fen_string, solution_moves, difficulty_elo, tag_id)
-FROM '/var/lib/postgresql/csv_data/puzzles.csv'
-DELIMITER ',' CSV HEADER;
-
-COPY DAILY_PUZZLES(daily_puzzle_id,puzzle_id,puzzle_date,title,bonus_xp)
-FROM '/var/lib/postgresql/csv_data/daily_puzzles.csv'
-DELIMITER ',' CSV HEADER;
-
-COPY PUZZLE_ATTEMPT(attempt_id, user_id, puzzle_id, is_successful, time_taken_sec, attempt_date)
-FROM '/var/lib/postgresql/csv_data/puzzle_attempt.csv'
-DELIMITER ',' CSV HEADER;
-
 -- User
 insert into USERS (user_id) values (1);
 insert into USERS (user_id) values (2);
@@ -3045,3 +3024,24 @@ insert into COURSE_PROGRESS (course_progress_id, user_id, course_id, is_complete
 insert into COURSE_PROGRESS (course_progress_id, user_id, course_id, is_completed, start_date, completion_date) values (598, 114, 344, true, '12/3/2020', '7/2/2030');
 insert into COURSE_PROGRESS (course_progress_id, user_id, course_id, is_completed, start_date, completion_date) values (599, 349, 159, true, '8/3/2017', '5/7/2029');
 insert into COURSE_PROGRESS (course_progress_id, user_id, course_id, is_completed, start_date, completion_date) values (600, 101, 370, true, '5/15/2019', '4/1/2021');
+
+-- ייבוא נתונים מקבצי CSV
+COPY CHAPTERS(chapter_id,title,content_text,chapter_order,course_id)
+FROM '/var/lib/postgresql/csv_data/CHAPTERS.csv'
+DELIMITER ',' CSV HEADER;
+
+COPY TAGS(tag_id, tag_name, description)
+FROM '/var/lib/postgresql/csv_data/tags.csv'
+DELIMITER ',' CSV HEADER;
+
+COPY PUZZLES(fen_string, solution_moves, difficulty_elo, tag_id)
+FROM '/var/lib/postgresql/csv_data/puzzles.csv'
+DELIMITER ',' CSV HEADER;
+
+COPY DAILY_PUZZLES(daily_puzzle_id,puzzle_id,puzzle_date,title,bonus_xp)
+FROM '/var/lib/postgresql/csv_data/daily_puzzles.csv'
+DELIMITER ',' CSV HEADER;
+
+COPY PUZZLE_ATTEMPT(attempt_id, user_id, puzzle_id, is_successful, time_taken_sec, attempt_date)
+FROM '/var/lib/postgresql/csv_data/puzzle_attempt.csv'
+DELIMITER ',' CSV HEADER;

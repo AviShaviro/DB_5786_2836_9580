@@ -12,7 +12,7 @@ from shared_logic import get_csv_path
 input_file = get_csv_path('lichess_db_puzzle.csv') # שם הקובץ של lichess
 tags_output = get_csv_path('tags.csv')
 puzzles_output = get_csv_path('puzzles.csv')
-num_records = 20000
+num_records = 30000
 
 def process_chess_data():
     unique_themes = set()
@@ -51,9 +51,9 @@ def process_chess_data():
         print(f"Generating {tags_output} with {len(sorted_themes)} unique tags...")
         with open(tags_output, mode='w', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
-            writer.writerow(['tag_name', 'description']) # כותרות ל-SQL
+            writer.writerow(['tag_id', 'tag_name', 'description']) # כותרות ל-SQL
             for theme in sorted_themes:
-                writer.writerow([theme, f"Chess tactic: {theme}"])
+                writer.writerow([theme_to_id[theme], theme, f"Chess tactic: {theme}"])
         
         # 2. יצירת קובץ ה-PUZZLES עם ה-ID המקושר
         print(f"Generating {puzzles_output}...")
