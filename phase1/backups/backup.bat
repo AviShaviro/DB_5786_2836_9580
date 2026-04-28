@@ -11,8 +11,12 @@ if exist "..\..\.env" (
     exit /b
 )
 
-:: הגדרת שם קובץ עם תאריך (YYYYMMDD)
-set FILENAME=backup_%date:~10,4%%date:~7,2%%date:~4,2%.sql
+:: שליפת תאריך ושעה באופן גנרי שאינו תלוי בשפת המערכת
+for /f "tokens=2 delims==" %%I in ('wmic os get localdatetime /value') do set datetime=%%I
+
+:: בניית שם הקובץ: backup_שםמשתמש_YYYY-MM-DD.sql
+:: %datetime:~0,4% = שנה, %datetime:~4,2% = חודש, %datetime:~6,2% = יום
+set FILENAME=backup_%USERNAME%_%datetime:~0,4%.%datetime:~4,2%.%datetime:~6,2%.sql
 
 echo [INFO] Starting backup from container: PostgreSQL_DB
 echo [INFO] Database: %DB_NAME_SECRET%, User: %DB_USER_SECRET%

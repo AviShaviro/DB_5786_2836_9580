@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict kulafbvngHqYT8jWC5kTNgqgmS682kiTdndutEF45B8S0YY0EQ7fgVFXVUwAjoE
+\restrict DUfhMPJQ2JW4ZrIrgUtSiucxL2tovT5eS1UxtWNcfsMvcJmyT06Zc6PAsQRQrVF
 
 -- Dumped from database version 18.3 (Debian 18.3-1.pgdg13+1)
 -- Dumped by pg_dump version 18.3 (Debian 18.3-1.pgdg13+1)
@@ -54479,5 +54479,5 @@ ALTER TABLE ONLY public.puzzles
 -- PostgreSQL database dump complete
 --
 
-\unrestrict kulafbvngHqYT8jWC5kTNgqgmS682kiTdndutEF45B8S0YY0EQ7fgVFXVUwAjoE
+\unrestrict DUfhMPJQ2JW4ZrIrgUtSiucxL2tovT5eS1UxtWNcfsMvcJmyT06Zc6PAsQRQrVF
 
