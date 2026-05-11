@@ -29,19 +29,6 @@ if not exist "!BACKUP_FILE!" (
     exit /b
 )
 
-:: 3. אזהרת משתמש
-echo ======================================================
-echo [WARNING] You are about to restore to: %DB_RESTORE_NAME_SECRET%
-echo [WARNING] This will overwrite existing data!
-echo ======================================================
-set /p CONFIRM="Are you sure you want to proceed? (Y/N): "
-
-if /i not "!CONFIRM!"=="Y" (
-    echo [INFO] Restore cancelled.
-    popd
-    exit /b
-)
-
 echo [INFO] Starting restore into container: PostgreSQL_DB...
 
 :: 4. הרצת השחזור (שימוש ב-psql עבור קבצי SQL רגילים)
