@@ -105,13 +105,13 @@ Provide the following SQL scripts:
 
 ![](phase1/screenshots/backuping_pgadmin_success.png)
 
-<!--![](phase1/screenshots/restore_pgadmin.png)
-
-![](phase1/screenshots/restore_pgadmin_success.png)-->
+![](phase1/screenshots/restore_pgadmin.png)
 
 #### Second Way: Using CLI:
 
+![](phase1/screenshots/backup_with_cli.png)
 
+![](phase1/screenshots/restore_with_cli.png)
 
 
 ## Phase 2: Integration
