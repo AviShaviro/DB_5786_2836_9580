@@ -107,6 +107,39 @@ SELECT puzzle_id, difficulty_elo
 FROM PUZZLES 
 WHERE difficulty_elo > (SELECT avg_elo FROM avg_elo);
 
+-- משתמשים שלא פתרו אף חידה (דרך א: שימוש ב-NOT IN)
+SELECT user_id 
+FROM USERS
+WHERE user_id NOT IN (SELECT user_id FROM PUZZLE_ATTEMPT);
+
+-- משתמשים שלא פתרו אף חידה (דרך ב: שימוש ב-NOT EXISTS)
+-- יעיל יותר פרישה מוקדמת
+SELECT U.user_id 
+FROM USERS U
+WHERE NOT EXISTS (
+    SELECT 1 
+    FROM PUZZLE_ATTEMPT PA 
+    WHERE PA.user_id = U.user_id
+);
+
+-- חידות קשות מהממוצע (דרך א: תת-שאילתה ב-WHERE)
+SELECT puzzle_id, difficulty_elo 
+FROM PUZZLES 
+WHERE difficulty_elo > (
+    SELECT AVG(difficulty_elo) 
+    FROM PUZZLES
+);
+
+-- חידות קשות מהממוצע (דרך ב: טבלה נגזרת ב-FROM)
+SELECT P.puzzle_id, P.difficulty_elo 
+FROM PUZZLES P, (SELECT AVG(difficulty_elo) AS avg_elo FROM PUZZLES) A
+WHERE P.difficulty_elo > A.avg_elo;
+
+WITH(avg_elo AS (SELECT AVG(difficulty_elo) FROM PUZZLES))
+SELECT puzzle_id, difficulty_elo 
+FROM PUZZLES 
+WHERE difficulty_elo > (SELECT avg_elo FROM avg_elo);
+
 --------------------------------------------------------------------------------------------------------
 --אם חידה נפתרה בתוך פחות מ-10 שניות בממוצע, נוריד את ה-ELO שלה ב-100
 
