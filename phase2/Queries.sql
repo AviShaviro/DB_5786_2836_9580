@@ -11,7 +11,6 @@ GROUP BY U.user_id, EXTRACT(MONTH FROM PA.attempt_date)
 HAVING COUNT(PA.attempt_id) > 5
 ORDER BY success_rate DESC;
 
-
 --מחפשת חידות  שאחוז ההצלחה בהן נמוך מ-40%.
 SELECT P.puzzle_id, P.difficulty_elo, T.tag_name, 
        (SELECT COUNT(*) FROM PUZZLE_ATTEMPT WHERE puzzle_id = P.puzzle_id) as total_plays
@@ -47,7 +46,6 @@ JOIN USERS U ON CP.user_id = U.user_id
 JOIN COURSES C ON CP.course_id = C.course_id
 WHERE CP.is_completed = TRUE AND EXTRACT(YEAR FROM CP.completion_date) = 2026;
 
-
 --משתמשים שסיימו קורסים השנה (שימוש ב-JOIN)
 SELECT DISTINCT U.user_id, C.title, CP.completion_date
 FROM USERS U
@@ -76,6 +74,38 @@ FROM PUZZLES P
 LEFT JOIN DAILY_PUZZLES DP ON P.puzzle_id = DP.puzzle_id
 WHERE DP.daily_puzzle_id IS NULL;
 
+-- משתמשים שלא פתרו אף חידה (דרך א: שימוש ב-NOT IN)
+SELECT user_id 
+FROM USERS
+WHERE user_id NOT IN (SELECT user_id FROM PUZZLE_ATTEMPT);
+
+-- משתמשים שלא פתרו אף חידה (דרך ב: שימוש ב-NOT EXISTS)
+-- יעיל יותר פרישה מוקדמת
+SELECT U.user_id 
+FROM USERS U
+WHERE NOT EXISTS (
+    SELECT 1 
+    FROM PUZZLE_ATTEMPT PA 
+    WHERE PA.user_id = U.user_id
+);
+
+-- חידות קשות מהממוצע (דרך א: תת-שאילתה ב-WHERE)
+SELECT puzzle_id, difficulty_elo 
+FROM PUZZLES 
+WHERE difficulty_elo > (
+    SELECT AVG(difficulty_elo) 
+    FROM PUZZLES
+);
+
+-- חידות קשות מהממוצע (דרך ב: טבלה נגזרת ב-FROM)
+SELECT P.puzzle_id, P.difficulty_elo 
+FROM PUZZLES P, (SELECT AVG(difficulty_elo) AS avg_elo FROM PUZZLES) A
+WHERE P.difficulty_elo > A.avg_elo;
+
+WITH(avg_elo AS (SELECT AVG(difficulty_elo) FROM PUZZLES))
+SELECT puzzle_id, difficulty_elo 
+FROM PUZZLES 
+WHERE difficulty_elo > (SELECT avg_elo FROM avg_elo);
 
 --------------------------------------------------------------------------------------------------------
 --אם חידה נפתרה בתוך פחות מ-10 שניות בממוצע, נוריד את ה-ELO שלה ב-100
@@ -112,7 +142,6 @@ WHERE attempt_date < '2000-01-01'
 --מחיקת התקדמות של קורסים לפני שנת 2000
 DELETE FROM COURSE_PROGRESS
 WHERE start_date < '2000-01-01'
-
 
 --מחיקת קורסים שאין בהם פרקים
 DELETE FROM COURSES
