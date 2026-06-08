@@ -38,7 +38,7 @@ services:
     volumes:
       - pgadmin_data:/var/lib/pgadmin
       - ./phase1/scripts:/var/lib/pgadmin/storage/${PGADMIN_EMAIL_storage}/scripts
-
+      - ./phase2/scripts:/var/lib/pgadmin/storage/${PGADMIN_EMAIL_storage}/scripts2
     depends_on:
       - db
     networks:
