@@ -134,8 +134,8 @@ Provide the following SQL scripts:
     AND EXTRACT(YEAR FROM completion_date) = 2026;
     ```
 * **הסבר והבדלי יעילות:** השימוש ב-JOIN לרוב יעיל יותר מכיוון שמנוע בסיס הנתונים יודע לבצע אופטימיזציה לחיבור בין טבלאות באופן מקביל. שימוש ב-IN, ובמיוחד תת-שאילתא בשורת ה-SELECT, מאלץ את המנוע לבצע פעולת שליפה עבור כל שורה בנפרד (N+1 בעיות), מה שעשוי להאט משמעותית את הביצועים על כמויות מידע גדולות.
-* **צילום הרצה:** `![Run Output](phase2/screenshots/run_completed_courses.png)`
-* **צילום תוצאה:** `![Result](phase2/screenshots/res_completed_courses.png)`
+
+* **צילום תוצאה:** ![Result](phase2/screenshots/res_completed_courses.png)
 
 **2. חידות שלא הופיעו כ"חידה יומית"**
 * **תיאור:** שליפת מזהה החידה והדירוג (ELO) שלה עבור חידות שמעולם לא שובצו כחידה יומית.
@@ -153,8 +153,7 @@ Provide the following SQL scripts:
     WHERE DP.daily_puzzle_id IS NULL;
     ```
 * **הסבר והבדלי יעילות:** כאשר ישנם ערכי NULL בעמודות המעורבות, `NOT IN` עלול להחזיר תוצאות לא צפויות (קבוצה ריקה) או לדרוש סריקה מלאה. `LEFT JOIN` בתוספת `IS NULL` בטוח יותר מבחינה לוגית כשיש NULLs, ומנועי DB מודרניים מבצעים לו אופטימיזציה מצוינת (Anti-Join), לכן הוא נחשב לאמין ויעיל מאוד למטרה זו.
-* **צילום הרצה:** `![Run Output](phase2/screenshots/run_not_daily.png)`
-* **צילום תוצאה:** `![Result](phase2/screenshots/res_not_daily.png)`
+* **צילום תוצאה:** ![Result](phase2/screenshots/res_not_daily.png)
 
 **3. משתמשים שלא פתרו אף חידה**
 * **תיאור:** מציאת מזהי המשתמשים שאין להם אף רשומה בטבלת הניסיונות לפתרון חידות.
@@ -175,8 +174,8 @@ Provide the following SQL scripts:
     );
     ```
 * **הסבר והבדלי יעילות:** השימוש ב-`NOT EXISTS` יעיל בהרבה עקב מנגנון "פרישה מוקדמת" (Early Exit). ברגע שמנוע ה-DB מוצא רשומה אחת שתואמת לתנאי בתוך התת-שאילתא, הוא עוצר את הבדיקה עבור אותו משתמש וממשיך הלאה. לעומת זאת, `NOT IN` יחפש בכל הרשימה במלואה וישווה ערך ערך.
-* **צילום הרצה:** `![Run Output](phase2/screenshots/run_no_attempts.png)`
-* **צילום תוצאה:** `![Result](phase2/screenshots/res_no_attempts.png)`
+
+* **צילום תוצאה:** ![Result](phase2/screenshots/res_no_attempts.png)
 
 **4. חידות קשות מהממוצע**
 * **תיאור:** שליפת מזהי החידות שהדירוג (ELO) שלהן גבוה מהדירוג הממוצע של כלל החידות במערכת.
@@ -197,8 +196,8 @@ Provide the following SQL scripts:
     WHERE difficulty_elo > (SELECT avg_elo FROM avg_elo);
     ```
 * **הסבר והבדלי יעילות:** שימוש ב-CTE (או בטבלה נגזרת ב-FROM כפי שמופיע בקובץ) מחשב את הממוצע פעם אחת בלבד ושומר אותו בזיכרון לשימוש השאילתא העיקרית. תת-שאילתא ב-WHERE עלולה להיות מחושבת מחדש עבור כל שורה בטבלה (תלוי באופטימייזר), מה שהופך את גישת ה-CTE או הטבלה הנגזרת ליעילה וקריאה יותר.
-* **צילום הרצה:** `![Run Output](phase2/screenshots/run_hard_puzzles.png)`
-* **צילום תוצאה:** `![Result](phase2/screenshots/res_hard_puzzles.png)`
+
+* **צילום תוצאה:** ![Result](phase2/screenshots/res_hard_puzzles.png)
 
 ---
 
@@ -220,8 +219,7 @@ Provide the following SQL scripts:
     HAVING COUNT(PA.attempt_id) > 5
     ORDER BY success_rate DESC;
     ```
-* **צילום הרצה:** `![Run Output](phase2/screenshots/run_success_rate.png)`
-* **צילום תוצאה:** `![Result](phase2/screenshots/res_success_rate.png)`
+* **צילום תוצאה:** ![](phase2/screenshots/res_success_rate.png)
 
 **2. חידות עם אחוז הצלחה נמוך מ-40%**
 * **תיאור:** איתור החידות הקשות ביותר במערכת שאחוז ההצלחה בהן נמוך מ-40%, כולל כמות הפעמים ששיחקו בהן.
@@ -239,8 +237,7 @@ Provide the following SQL scripts:
     )
     ORDER BY total_plays DESC;
     ```
-* **צילום הרצה:** `![Run Output](phase2/screenshots/run_low_success.png)`
-* **צילום תוצאה:** `![Result](phase2/screenshots/res_low_success.png)`
+* **צילום תוצאה:** ![Result](phase2/screenshots/res_low_success.png)
 
 **3. היום העמוס ביותר בפתרון חידות יומיות**
 * **תיאור:** ניתוח המציג באיזה יום בשבוע ישנה את כמות הניסיונות הגדולה ביותר לפתרון חידות יומיות, וכן את ממוצע הזמן שלקח לפתור אותן.
@@ -255,8 +252,8 @@ Provide the following SQL scripts:
     GROUP BY TO_CHAR(PA.attempt_date, 'Day')
     ORDER BY attempt_count DESC;
     ```
-* **צילום הרצה:** `![Run Output](phase2/screenshots/run_busiest_day.png)`
-* **צילום תוצאה:** `![Result](phase2/screenshots/res_busiest_day.png)`
+
+* **צילום תוצאה:** ![Result](phase2/screenshots/res_busiest_day.png)
 
 **4. סטטוס התקדמות בקורסים**
 * **תיאור:** הצגת פרטי משתמשים שסיימו קורסים במהלך שנת 2026, כולל תאריך התחלה, תאריך סיום וחישוב של מספר הימים שלקח להם לסיים את הקורס.
@@ -273,8 +270,8 @@ Provide the following SQL scripts:
     JOIN COURSES C ON CP.course_id = C.course_id
     WHERE CP.is_completed = TRUE AND EXTRACT(YEAR FROM CP.completion_date) = 2026;
     ```
-* **צילום הרצה:** `![Run Output](phase2/screenshots/run_course_status.png)`
-* **צילום תוצאה:** `![Result](phase2/screenshots/res_course_status.png)`
+
+* **צילום תוצאה:** ![Result](phase2/screenshots/res_course_status.png)
 
 ---
 
@@ -291,8 +288,8 @@ Provide the following SQL scripts:
         GROUP BY puzzle_id HAVING AVG(time_taken_sec) < 10
     );
     ```
-* **צילום הרצה:** `![Run Output](phase2/screenshots/run_update_elo_down.png)`
-* **צילום לפני ואחרי:** `![Before After](phase2/screenshots/db_update_elo_down.png)`
+* **צילום הרצה:** ![Run Output](phase2/screenshots/run_update_elo_down.png)
+
 
 **2. עדכון מעלה: העלאת ELO לחידות קשות**
 * **תיאור:** העלאת דרגת הקושי (ELO) ב-100 נקודות לחידות שלקח למשתמשים מעל 60 שניות בממוצע לפתור.
@@ -305,8 +302,7 @@ Provide the following SQL scripts:
         GROUP BY puzzle_id HAVING AVG(time_taken_sec) > 60
     );
     ```
-* **צילום הרצה:** `![Run Output](phase2/screenshots/run_update_elo_up.png)`
-* **צילום לפני ואחרי:** `![Before After](phase2/screenshots/db_update_elo_up.png)`
+* **צילום הרצה:** ![Run Output](phase2/screenshots/run_update_elo_down.png)
 
 **3. עדכון בונוס: הוספת XP לחידות ביום ראשון**
 * **תיאור:** הוספת 10 נקודות בונוס ניסיון (XP) לחידות יומיות שפורסמו ביום ראשון (DOW = 0).
@@ -316,8 +312,7 @@ Provide the following SQL scripts:
     SET bonus_xp = bonus_xp +10
     WHERE EXTRACT(DOW FROM puzzle_date) IN (0); 
     ```
-* **צילום הרצה:** `![Run Output](phase2/screenshots/run_update_xp.png)`
-* **צילום לפני ואחרי:** `![Before After](phase2/screenshots/db_update_xp.png)`
+* **צילום הרצה:**![Run Output](phase2/screenshots/run_update_elo_down.png)
 
 **4. מחיקת ניסיונות פתרון ישנים**
 * **תיאור:** מחיקת רשומות של ניסיונות פתרון שהתבצעו לפני שנת 2000.
@@ -326,8 +321,8 @@ Provide the following SQL scripts:
     DELETE FROM PUZZLE_ATTEMPT
     WHERE attempt_date < '2000-01-01';
     ```
-* **צילום הרצה:** `![Run Output](phase2/screenshots/run_delete_attempts.png)`
-* **צילום לפני ואחרי:** `![Before After](phase2/screenshots/db_delete_attempts.png)`
+* **צילום הרצה:** ![Run Output](phase2/screenshots/run_delete_attempts.png)
+
 
 **5. מחיקת התקדמות קורסים ישנה**
 * **תיאור:** מחיקת רישומי התקדמות קורסים שהחלו לפני שנת 2000.
@@ -336,8 +331,7 @@ Provide the following SQL scripts:
     DELETE FROM COURSE_PROGRESS
     WHERE start_date < '2000-01-01';
     ```
-* **צילום הרצה:** `![Run Output](phase2/screenshots/run_delete_progress.png)`
-* **צילום לפני ואחרי:** `![Before After](phase2/screenshots/db_delete_progress.png)`
+* **צילום הרצה:** ![Run Output](phase2/screenshots/run_delete_attempts.png)
 
 **6. מחיקת קורסים ריקים**
 * **תיאור:** מחיקת קורסים שאין להם אף פרק מקושר בטבלת הפרקים.
@@ -346,8 +340,7 @@ Provide the following SQL scripts:
     DELETE FROM COURSES
     WHERE course_id NOT IN (SELECT course_id FROM CHAPTERS);
     ```
-* **צילום הרצה:** `![Run Output](phase2/screenshots/run_delete_empty_courses.png)`
-* **צילום לפני ואחרי:** `![Before After](phase2/screenshots/db_delete_empty_courses.png)`
+* **צילום הרצה:** ![Run Output](phase2/screenshots/run_delete_attempts.png)
 
 ---
 
