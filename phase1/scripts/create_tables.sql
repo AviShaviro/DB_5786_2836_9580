@@ -51,16 +51,16 @@ CREATE TABLE DAILY_PUZZLES
   FOREIGN KEY (puzzle_id) REFERENCES PUZZLES(puzzle_id)
 );
 
-CREATE TABLE COURSE_PROGRESS
+CREATE TABLE CHAPTER_PROGRESS
 (
-  course_progress_id SERIAL PRIMARY KEY,
+  chapter_progress_id SERIAL PRIMARY KEY,
   user_id INT NOT NULL,
-  course_id INT NOT NULL,
+  chapter_id INT NOT NULL,
   is_completed BOOLEAN DEFAULT FALSE,
   start_date DATE NOT NULL,
   completion_date DATE,
   FOREIGN KEY (user_id) REFERENCES USERS(user_id),
-  FOREIGN KEY (course_id) REFERENCES COURSES(course_id)
+  FOREIGN KEY (chapter_id) REFERENCES CHAPTERS(chapter_id)
 );
 
 CREATE TABLE PUZZLE_ATTEMPT

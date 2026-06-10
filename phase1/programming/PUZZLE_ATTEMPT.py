@@ -6,7 +6,7 @@ import shared_logic
 filename = shared_logic.get_csv_path('puzzle_attempt.csv')
 
 # הגדרות הרשומות
-num_records = 20000
+num_records = 150000
 
 # תאריך ושעת התחלה בסיסיים שמהם נוסיף זמן אקראי
 start_datetime = datetime(2023, 1, 1, 8, 0, 0)

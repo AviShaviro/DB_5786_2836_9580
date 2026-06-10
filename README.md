@@ -37,13 +37,13 @@ This database serves as a structured and reliable solution for the platform to:
 - **Manage courses and chapters**, allowing structured content delivery to users.
 - **Store chess puzzles**, including FEN strings, solution moves, tags, and difficulty ratings (ELO).
 - **Track user attempts**, recording success rates and time taken to solve puzzles.
-- **Monitor course progress**, keeping track of when users start and complete specific courses.
+- **Monitor chapter progress**, keeping track of when users start and complete specific chapters.
 - **Offer Daily Puzzles** with unique dates and bonus XP rewards for consistent engagement.
 
 #### Potential Use Cases
 
 - **Platform Administrators / Instructors** can use this database to create new courses, upload puzzles, and assign daily challenges.
-- **Users (Students/Players)** can track their learning progress, review their puzzle-solving history, and see their course completion status.
+- **Users (Students/Players)** can track their learning progress, review their puzzle-solving history, and see their chapter completion status.
 - **System Analytics** can utilize the puzzle attempt records to adjust the difficulty ELO of puzzles based on how many users succeed or fail, and calculate the average time taken.
 
 This structured database helps streamline the e-learning experience, improving content organization and user tracking.
