@@ -1,7 +1,3 @@
--- ייבוא נתונים מקבצי CSV
-COPY CHAPTERS(chapter_id,title,content_text,chapter_order,course_id)
-FROM '/var/lib/postgresql/csv_data/CHAPTERS.csv'
-DELIMITER ',' CSV HEADER;
 
 COPY TAGS(tag_id, tag_name, description)
 FROM '/var/lib/postgresql/csv_data/tags.csv'

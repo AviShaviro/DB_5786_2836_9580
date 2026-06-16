@@ -109,13 +109,12 @@ WHERE EXTRACT(DOW FROM puzzle_date) IN (0);
 
 ---------------------------------------------------------------------------------------------------
 
-
 --מחיקת ניסיונות פתרון ישנים של משתמשים לא פעילים:
 DELETE FROM PUZZLE_ATTEMPT
 WHERE attempt_date < '2000-01-01';
 
 --מחיקת התקדמות של קורסים לפני שנת 2000
-DELETE FROM COURSE_PROGRESS
+DELETE FROM C_PROGRESS
 WHERE start_date < '2000-01-01';
 
 --מחיקת קורסים שאין בהם פרקים
