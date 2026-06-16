@@ -1,5 +1,6 @@
 # project-specific gitignores
 phase1/programming/lichess_db_puzzle.csv
+phase1/mockarooFiles/generate_mock_data.py
 
 
 # Byte-compiled / optimized / DLL files

@@ -42,11 +42,11 @@ Provide the following SQL scripts:
 
 ![](screenshots/mockaroo.png)
 
-📜 **[View `mockarooFiles`](/mockarooFiles)** #### Second tool: using python script to create csv file from imported real data
+📜 **[View `mockarooFiles`](mockarooFiles)** #### Second tool: using python script to create csv file from imported real data
 
-📜 **[View `DAILY_PUZZLES.py`](/programming/DAILY_PUZZLES.py)** 📜 **[View `DAILY_PUZZLES.py`](/programming/PUZZLE_ATTEMPT.py)** #### Third tool: using python script to create csv file from imported real data
+📜 **[View `DAILY_PUZZLES.py`](programming/DAILY_PUZZLES.py)** 📜 **[View `DAILY_PUZZLES.py`](programming/PUZZLE_ATTEMPT.py)** #### Third tool: using python script to create csv file from imported real data
 
-📜 **[View `puzzles_and_tags.py`](/programming/puzzles_and_tags.py)** ####  After running the `create_tables.sql`, `insert_tables.sql` and `count_all.sql` scripts, we can see the following result:
+📜 **[View `puzzles_and_tags.py`](programming/puzzles_and_tags.py)** ####  After running the `create_tables.sql`, `insert_tables.sql` and `count_all.sql` scripts, we can see the following result:
 
 ![Count All Data](screenshots/count_all.png)
 
