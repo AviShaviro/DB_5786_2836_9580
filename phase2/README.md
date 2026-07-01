@@ -1,4 +1,4 @@
-# Chess Learning & Puzzles Platform — Phase 2 (שלב ב)
+# Chess Learning & Puzzles Platform — Phase 2
 
 Authors: Avraham Shaviro & Shraga Chesrak
 

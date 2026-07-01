@@ -1,19 +1,19 @@
 # Database Final Project — Phase 1
-## ChessAcademy — Chess Learning & Puzzles Platform
+##  Chess Learning & Puzzles Platform
 
 > A complete, detailed project report documenting all the work done in **Phase 1: Design, Build, Data Population & Backup**.
 
 ---
 
-### 📄 Submission Details
+### 📄 Details
 
 | | |
 |---|---|
 | **Authors** | Avraham Shaviro & Shraga Chesrak |
 | **ID numbers** | 325239580 , 322232836|
 | **Course** | Database Mini-Project |
-| **Academic year** | 2026 |
-| **System name** | ChessAcademy — Chess Learning & Puzzles Platform |
+| **Year** | 2026 |
+| **System name** |  Chess Learning & Puzzles Platform |
 
 ---
 
@@ -27,14 +27,13 @@
 6. [Data Population — Three Methods](#6-data-population--three-methods)
 7. [Backup & Restore](#7-backup--restore)
 8. [Folder Structure & Execution Guide](#8-folder-structure--execution-guide)
-9. [Requirements Compliance](#9-requirements-compliance)
 
 ---
 
 ## 1. Introduction & System Overview
 
 ### 🎯 Goal
-The goal of this project is to design and build a **normalized relational database** (at least **3NF**) for **ChessAcademy** — a platform for learning chess and solving tactical puzzles. The system manages users, learning courses and their chapters, a chess-puzzle repository, a daily puzzle, and detailed tracking of user progress and performance — all while enforcing data integrity and supporting the analytical queries required in later phases of the project.
+The goal of this project is to design and build a **normalized relational database** (at least **3NF**) for **** — a platform for learning chess and solving tactical puzzles. The system manages users, learning courses and their chapters, a chess-puzzle repository, a daily puzzle, and detailed tracking of user progress and performance — all while enforcing data integrity and supporting the analytical queries required in later phases of the project.
 
 ### 🧩 Core Functionality
 
@@ -196,7 +195,6 @@ The full structure of the eight tables — attributes, data types, and constrain
 | 📜 [`scripts/insert_tables.sql`](scripts/insert_tables.sql) | `INSERT` statements for data population (output of the manual / Mockaroo insert method). |
 | 📜 [`scripts/select_all.sql`](scripts/select_all.sql) | `SELECT *` from every table — to retrieve the data. |
 | 📜 [`scripts/count_all.sql`](scripts/count_all.sql) | Counts the number of rows in each table (population verification). |
-| 📜 [`scripts/extend_to_min_500.sql`](scripts/extend_to_min_500.sql) | Tops up the four smaller content tables (COURSES, CHAPTERS, TAGS, DAILY_PUZZLES) to ≥ 500 rows each, so every table meets the minimum-rows requirement. FK-safe and wrapped in a transaction. |
 
 ---
 
@@ -237,10 +235,6 @@ After execution, the number of rows in each table:
 | CHAPTER_PROGRESS | 8,000 | Mockaroo |
 | **PUZZLE_ATTEMPT** | **150,000** | Python |
 
-> The two large tables — `PUZZLES` (30,000) and `PUZZLE_ATTEMPT` (150,000) — satisfy the 20,000-row requirement.
-
-> 📌 The counts above reflect the **base** population. The four smaller content tables (COURSES, CHAPTERS, TAGS, DAILY_PUZZLES) are then topped up to **≥ 500 rows each** by [`scripts/extend_to_min_500.sql`](scripts/extend_to_min_500.sql), bringing them to 520, 620, 540, and 865 rows respectively — so every table meets the minimum-rows requirement.
-
 ---
 
 ## 7. Backup & Restore
@@ -274,39 +268,19 @@ phase1/
 ├── scripts/                  ← create / drop / insert / select / count
 ├── mockarooFiles/            ← Mockaroo data (Method 1)
 ├── programming/              ← Python scripts that build CSVs (Method 2)
-├── copy_csv_commands/        ← COPY commands to import CSVs (Method 3)
+├── copy_csv_commands/        ← COPY commands to populate by CSVs
 ├── screenshots/              ← screenshots (AI characterization, population, backup)
+├── build_inserts.bat         ← Batch file to build phase1\scripts\insert_tables.sql from all the  methods combined to a single sql file
 └── backups/                  ← database backup files
 ```
 
 ### Recommended execution order
 1. `scripts/create_tables.sql` — create the tables.
-2. Populate data — `scripts/insert_tables.sql` (Mockaroo) and/or the `copy_csv_commands/` commands for the large CSV files.
+2.  `scripts/insert_tables.sql` — Populate data.
 3. `scripts/count_all.sql` — verify row counts.
 4. `scripts/select_all.sql` — view the data.
 5. `scripts/drop_tables.sql` — reset the schema (when needed).
 
 > 💡 Instructions for bringing up the database in a Docker + pgAdmin environment are in the repository's main README.
-
----
-
-## 9. Requirements Compliance
-
-| Requirement | Status | Note |
-|------|:----:|------|
-| 4 screens characterized in Google AI Studio | ✅ | Dashboard, Courses, Puzzles, Daily Puzzle |
-| ERD diagram | ✅ | 6 entities + 2 M:N relationships with attributes |
-| DSD diagram | ✅ | 8 tables |
-| At least 6 entities | ✅ | 8 tables |
-| At least 2 meaningful `DATE` fields | ✅ | `publish_date`, `start_date`, `completion_date`, `puzzle_date` |
-| Constraints (PK / FK / NOT NULL / UNIQUE / DEFAULT) | ✅ | defined in `create_tables.sql` |
-| Normalized to at least 3NF | ✅ | see section 3.5 |
-| createTables / dropTables / insertTables / selectAll | ✅ | under `scripts/` |
-| 3 data population methods | ✅ | Mockaroo · Python (Lichess) · `COPY` from CSV |
-| 2 tables with ≥ 20,000 rows | ✅ | PUZZLES (30K), PUZZLE_ATTEMPT (150K) |
-| Every table with ≥ 500 rows | ✅ | Met for all tables. The four smaller content tables (COURSES, CHAPTERS, TAGS, DAILY_PUZZLES) are topped up to ≥ 500 rows by [`scripts/extend_to_min_500.sql`](scripts/extend_to_min_500.sql) |
-| Backup via 2 methods + verified restore | ✅ | pgAdmin + CLI |
-
----
 
 > 📌 Advanced phase reports: [Phase 2 — Queries & Constraints](../phase2/README.md).
